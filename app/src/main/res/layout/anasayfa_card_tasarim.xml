@@ -8,7 +8,9 @@
             name="yemekNesnesi"
             type="com.samet.bootcampproje.data.entity.Yemekler" />
 
+
     </data>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,8 +28,8 @@
 
                     <ImageView
                         android:id="@+id/imageViewYemekResim"
-                        android:layout_width="171dp"
-                        android:layout_height="156dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/textViewYemekFiyat"
                         app:layout_constraintHorizontal_bias="0.5"

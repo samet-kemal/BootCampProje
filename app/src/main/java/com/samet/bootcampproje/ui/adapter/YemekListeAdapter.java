@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
@@ -40,9 +41,8 @@ public class YemekListeAdapter extends RecyclerView.Adapter<YemekListeAdapter.Ca
     @Override
     public CardViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        AnasayfaCardTasarimBinding binding = DataBindingUtil.inflate(LayoutInflater.from(mContext), R.layout.anasayfa_card_tasarim,parent,false);
-
-
+        AnasayfaCardTasarimBinding binding =
+                DataBindingUtil.inflate(LayoutInflater.from(mContext), R.layout.anasayfa_card_tasarim,parent,false);
 
         return new CardViewHolder(binding);
     }
@@ -54,7 +54,9 @@ public class YemekListeAdapter extends RecyclerView.Adapter<YemekListeAdapter.Ca
         AnasayfaCardTasarimBinding t = holder.binding;
         t.setYemekNesnesi(yemek);
         String url= "http://kasimadalan.pe.hu/yemekler/resimler/";
-        Picasso.get().load(url+yemek.getYemek_resim_adi()).into(t.imageViewYemekResim);
+
+        resimGetir(url,yemek,t.imageViewYemekResim);
+
 
 
         t.yemekCard.setOnClickListener(view->{
@@ -72,6 +74,12 @@ public class YemekListeAdapter extends RecyclerView.Adapter<YemekListeAdapter.Ca
         return tumYemekler.size();
     }
 
+
+    public void resimGetir(String url,Yemekler yemek, ImageView imageView){
+        Picasso.get().load(url+yemek.getYemek_resim_adi()).into(imageView);
+    }
 }
+
+
 
 

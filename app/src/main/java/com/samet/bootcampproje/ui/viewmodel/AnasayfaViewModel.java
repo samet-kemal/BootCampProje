@@ -10,21 +10,21 @@ import com.samet.bootcampproje.data.repo.YemeklerDaoRepo;
 import java.io.Closeable;
 import java.util.List;
 
+import javax.inject.Inject;
+
+import dagger.hilt.android.lifecycle.HiltViewModel;
+
+@HiltViewModel
 public class AnasayfaViewModel extends ViewModel {
 
     private YemeklerDaoRepo yRepo;
     public MutableLiveData<List<Yemekler>> tumYemekler = new MutableLiveData<>();
 
-    public AnasayfaViewModel(YemeklerDaoRepo yRepo, MutableLiveData<List<Yemekler>> tumYemekler) {
+    @Inject
+    public AnasayfaViewModel(YemeklerDaoRepo yRepo) {
         this.yRepo = yRepo;
         yemekleriGetir();
-        this.tumYemekler = tumYemekler;
-    }
-
-    public AnasayfaViewModel(YemeklerDaoRepo yRepo, MutableLiveData<List<Yemekler>> tumYemekler, @NonNull Closeable... closeables) {
-        super(closeables);
-        this.yRepo = yRepo;
-        this.tumYemekler = tumYemekler;
+        this.tumYemekler = yRepo.getYemekListesi();
     }
 
 

@@ -17,7 +17,10 @@ import com.samet.bootcampproje.databinding.FragmentAnasayfaBinding;
 import com.samet.bootcampproje.ui.adapter.YemekListeAdapter;
 import com.samet.bootcampproje.ui.viewmodel.AnasayfaViewModel;
 
+import dagger.hilt.android.AndroidEntryPoint;
 
+
+@AndroidEntryPoint
 public class AnasayfaFragment extends Fragment {
 
     private FragmentAnasayfaBinding binding;
@@ -26,8 +29,10 @@ public class AnasayfaFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
         binding= DataBindingUtil.inflate(inflater,R.layout.fragment_anasayfa, container, false);
         binding.setAnasayfaTitle("Yemek Uygulamassı");
+
         ((AppCompatActivity)getActivity()).setSupportActionBar(binding.toolbarAnasayfa);
 
 
@@ -45,5 +50,6 @@ public class AnasayfaFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         viewModel = new ViewModelProvider(this).get(AnasayfaViewModel.class);
+
     }
 }
