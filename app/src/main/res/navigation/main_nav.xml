@@ -12,7 +12,8 @@
         tools:layout="@layout/fragment_anasayfa" >
         <action
             android:id="@+id/action_anasayfaFragment_to_yemekDetayFragment"
-            app:destination="@id/yemekDetayFragment" />
+            app:destination="@id/yemekDetayFragment"
+            app:popUpTo="@id/anasayfaFragment" />
         <action
             android:id="@+id/action_anasayfaFragment_to_sepetFragment"
             app:destination="@id/sepetFragment" />
@@ -25,6 +26,9 @@
         <action
             android:id="@+id/action_yemekDetayFragment_to_anasayfaFragment"
             app:destination="@id/anasayfaFragment" />
+        <argument
+            android:name="secilenYemek"
+            app:argType="com.samet.bootcampproje.data.entity.Yemekler" />
     </fragment>
     <fragment
         android:id="@+id/sepetFragment"

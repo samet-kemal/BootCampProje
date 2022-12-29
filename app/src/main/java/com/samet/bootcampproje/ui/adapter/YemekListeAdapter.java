@@ -1,5 +1,6 @@
 package com.samet.bootcampproje.ui.adapter;
 
+import android.app.Notification;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,11 +9,15 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.samet.bootcampproje.R;
 import com.samet.bootcampproje.data.entity.Yemekler;
 import com.samet.bootcampproje.databinding.AnasayfaCardTasarimBinding;
+import com.samet.bootcampproje.ui.fragment.AnasayfaFragment;
+import com.samet.bootcampproje.ui.fragment.AnasayfaFragmentDirections;
 import com.samet.bootcampproje.ui.viewmodel.AnasayfaViewModel;
 import com.squareup.picasso.Picasso;
 
@@ -61,7 +66,9 @@ public class YemekListeAdapter extends RecyclerView.Adapter<YemekListeAdapter.Ca
 
         t.yemekCard.setOnClickListener(view->{
 
-
+            AnasayfaFragmentDirections.ActionAnasayfaFragmentToYemekDetayFragment gecis =
+                    AnasayfaFragmentDirections.actionAnasayfaFragmentToYemekDetayFragment(yemek);
+            Navigation.findNavController(view).navigate(gecis);
 
         });
 
