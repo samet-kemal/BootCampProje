@@ -50,6 +50,10 @@ public class YemeklerDaoRepo {
         });
     }
 
+    public void kisiGetir(){
+
+    }
+
 
 
 }

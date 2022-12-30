@@ -19,7 +19,7 @@
         tools:context=".ui.fragment.YemekDetayFragment">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/imageViewYemekDetay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -40,13 +40,13 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintTop_toBottomOf="@+id/imageViewYemekDetay" />
 
         <TextView
             android:id="@+id/textViewYemekDetayFiyat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text='@{yemekNesnesi.yemek_fiyat}'
+            android:text='@{String.valueOf(yemekNesnesi.yemek_fiyat)}'
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"

@@ -2,21 +2,27 @@ package com.samet.bootcampproje.ui.fragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.samet.bootcampproje.R;
 import com.samet.bootcampproje.data.entity.Yemekler;
 import com.samet.bootcampproje.databinding.FragmentYemekDetayBinding;
+import com.samet.bootcampproje.ui.viewmodel.YemekDetayViewModel;
+import com.squareup.picasso.Picasso;
 
 
 public class YemekDetayFragment extends Fragment {
 
     private FragmentYemekDetayBinding binding;
+    private YemekDetayViewModel viewModel;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -26,6 +32,10 @@ public class YemekDetayFragment extends Fragment {
         YemekDetayFragmentArgs bundle = YemekDetayFragmentArgs.fromBundle(getArguments());
         Yemekler seciliYemek = bundle.getSecilenYemek();
         binding.setYemekNesnesi(seciliYemek);
+        binding.setYemekDetayFragment(this);
+
+        String url= "http://kasimadalan.pe.hu/yemekler/resimler/";
+        resimGetir(url,seciliYemek,binding.imageViewYemekDetay);
 
         return binding.getRoot();
     }
@@ -35,4 +45,13 @@ public class YemekDetayFragment extends Fragment {
 
     }
 
+    public void resimGetir(String url,Yemekler yemek, ImageView imageView){
+        Picasso.get().load(url+yemek.getYemek_resim_adi()).into(imageView);
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        viewModel = new ViewModelProvider(this).get(YemekDetayViewModel.class);
+    }
 }
