@@ -13,6 +13,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import dagger.hilt.android.lifecycle.HiltViewModel;
+import hilt_aggregated_deps._com_samet_bootcampproje_MainActivity_GeneratedInjector;
 
 @HiltViewModel
 public class AnasayfaViewModel extends ViewModel {
@@ -31,6 +32,7 @@ public class AnasayfaViewModel extends ViewModel {
     public void yemekleriGetir(){
         yRepo.yemekleriYukle();
     }
+
 
 
 }

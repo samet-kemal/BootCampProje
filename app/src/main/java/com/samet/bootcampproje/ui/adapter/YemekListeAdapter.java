@@ -85,6 +85,8 @@ public class YemekListeAdapter extends RecyclerView.Adapter<YemekListeAdapter.Ca
     public void resimGetir(String url,Yemekler yemek, ImageView imageView){
         Picasso.get().load(url+yemek.getYemek_resim_adi()).into(imageView);
     }
+
+
 }
 
 

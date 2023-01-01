@@ -18,7 +18,10 @@ import com.samet.bootcampproje.databinding.FragmentYemekDetayBinding;
 import com.samet.bootcampproje.ui.viewmodel.YemekDetayViewModel;
 import com.squareup.picasso.Picasso;
 
+import dagger.hilt.android.AndroidEntryPoint;
 
+
+@AndroidEntryPoint
 public class YemekDetayFragment extends Fragment {
 
     private FragmentYemekDetayBinding binding;
@@ -37,11 +40,17 @@ public class YemekDetayFragment extends Fragment {
         String url= "http://kasimadalan.pe.hu/yemekler/resimler/";
         resimGetir(url,seciliYemek,binding.imageViewYemekDetay);
 
+        binding.fabDetay.setOnClickListener(view->{
+            sepeteEkle(seciliYemek);
+        });
+
         return binding.getRoot();
     }
 
 
     public void sepeteEkle(Yemekler eklenecekYemek){
+
+        viewModel.yemekEkle(eklenecekYemek.getYemek_adi(),eklenecekYemek.getYemek_resim_adi(),eklenecekYemek.getYemek_fiyat(),1);
 
     }
 

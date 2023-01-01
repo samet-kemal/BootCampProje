@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,6 +40,10 @@ public class AnasayfaFragment extends Fragment {
         viewModel.tumYemekler.observe(getViewLifecycleOwner(),yemeklers -> {
             YemekListeAdapter adapter = new YemekListeAdapter(requireContext(),yemeklers,viewModel);
             binding.setYemeklerAdapter(adapter);
+        });
+
+        binding.fabAnasayfaSepet.setOnClickListener(view->{
+            Navigation.findNavController(view).navigate(R.id.action_anasayfaFragment_to_sepetFragment);
         });
 
 

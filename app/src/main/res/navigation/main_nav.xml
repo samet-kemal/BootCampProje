@@ -16,7 +16,8 @@
             app:popUpTo="@id/anasayfaFragment" />
         <action
             android:id="@+id/action_anasayfaFragment_to_sepetFragment"
-            app:destination="@id/sepetFragment" />
+            app:destination="@id/sepetFragment"
+            app:popUpTo="@id/anasayfaFragment" />
     </fragment>
     <fragment
         android:id="@+id/yemekDetayFragment"
