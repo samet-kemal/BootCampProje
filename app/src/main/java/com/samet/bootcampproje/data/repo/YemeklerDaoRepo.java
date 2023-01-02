@@ -21,12 +21,19 @@ public class YemeklerDaoRepo {
 
     private MutableLiveData<List<Yemekler>> yemekListesi;
     private YemeklerDao yDao;
+    private MutableLiveData<List<Yemekler>> sepetYemekler;
 
     public YemeklerDaoRepo(YemeklerDao yDao) {
         this.yDao = yDao;
         yemekListesi = new MutableLiveData();
+        sepetYemekler=new MutableLiveData<>();
+
     }
 
+
+    public MutableLiveData<List<Yemekler>> getSepetYemekler() {
+        return sepetYemekler;
+    }
 
     public MutableLiveData<List<Yemekler>> getYemekListesi() {
         return yemekListesi;
@@ -59,6 +66,7 @@ public class YemeklerDaoRepo {
             public void onResponse(Call<SepetResponse> call, Response<SepetResponse> response) {
 
                 Log.e("YemekEkleCevap","Eklendi");
+
             }
 
             @Override
@@ -70,19 +78,19 @@ public class YemeklerDaoRepo {
     }
 
 
-    public void sepetiGetir(){
-
-       String kullanici_adi=KULLANICI_ADI;
+    public void sepetiGetir(String kullanici_adi){
 
         yDao.sepetiGetir(kullanici_adi).enqueue(new Callback<SepetResponse>() {
             @Override
             public void onResponse(Call<SepetResponse> call, Response<SepetResponse> response) {
-                Log.e("Yemekler",response.body().getYemekler().toString());
-
+                Log.e("SepetYemekler",response.body().getYemekler().toString());
+                List<Yemekler> sepetYemekler = response.body().getYemekler();
+                yemekListesi.setValue(sepetYemekler);
             }
 
             @Override
             public void onFailure(Call<SepetResponse> call, Throwable t) {
+                Log.e("SepetYemeklerHata",call.toString());
 
             }
         });

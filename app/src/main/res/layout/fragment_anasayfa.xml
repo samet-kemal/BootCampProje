@@ -5,7 +5,8 @@
 
     <data>
         <variable
-            name="anasayfaTitle"
+            name="anasayfaFragmentTitle"
+            android:textSize="10sp"
             type="String" />
 
 
@@ -20,29 +21,31 @@
         tools:context=".ui.fragment.AnasayfaFragment">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbarAnasayfa"
+            android:id="@+id/toolbarAnasayfaFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimary"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme"
+            app:layout_constraintBottom_toTopOf="@+id/anasayfaRv"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:title="@{anasayfaTitle}"
+            app:title="@{anasayfaFragmentTitle}"
             app:titleMargin="0dp" />
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/anasayfaRv"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="600dp"
             android:adapter="@{yemeklerAdapter}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbarAnasayfa" />
+            app:layout_constraintTop_toBottomOf="@+id/toolbarAnasayfaFragment" />
 
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -50,6 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
             android:backgroundTint="@color/black"
             android:clickable="true"
             android:src="@drawable/sho_baasket"

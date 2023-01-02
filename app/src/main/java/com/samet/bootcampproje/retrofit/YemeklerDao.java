@@ -22,7 +22,7 @@ public interface YemeklerDao {
                                   @Field("yemek_siparis_adet") int yemek_siparis_adet,
                                   @Field("kullanici_adi") String kullanici_adi);
 
-    @GET("http://kasimadalan.pe.hu/yemekler/sepettekiYemekleriGetir.php")
+    @POST("http://kasimadalan.pe.hu/yemekler/sepettekiYemekleriGetir.php")
     @FormUrlEncoded
     Call<SepetResponse> sepetiGetir(@Field("kullanici_adi") String kullanici_adi);
 
