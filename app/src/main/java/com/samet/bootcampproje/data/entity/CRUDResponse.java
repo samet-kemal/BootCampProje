@@ -4,12 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class CRUDResponse {
 
-    @SerializedName("success")
-    String success;
-    @SerializedName("message")
-    String message;
-
-    public String getSuccess() {
+    public int getSuccess() {
         return success;
     }
 
@@ -17,8 +12,15 @@ public class CRUDResponse {
         return message;
     }
 
-    public CRUDResponse(String success, String message) {
+    public CRUDResponse(int success, String message) {
         this.success = success;
         this.message = message;
     }
+
+    @SerializedName("success")
+    int success;
+    @SerializedName("message")
+    String message;
+
+
 }

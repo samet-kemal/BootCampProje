@@ -5,6 +5,7 @@ import static com.samet.bootcampproje.retrofit.ApiUtils.KULLANICI_ADI;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.samet.bootcampproje.data.entity.SepetYemekler;
 import com.samet.bootcampproje.data.entity.Yemekler;
 import com.samet.bootcampproje.data.repo.YemeklerDaoRepo;
 
@@ -17,7 +18,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel;
 @HiltViewModel
 public class SepetViewModel extends ViewModel {
    private YemeklerDaoRepo yrepo;
-   public MutableLiveData<List<Yemekler>> sepetYemekler = new MutableLiveData<>();
+   public MutableLiveData<List<SepetYemekler>> sepetYemekler = new MutableLiveData<>();
 
 
    @Inject
@@ -36,6 +37,8 @@ public class SepetViewModel extends ViewModel {
 
    public void sepettenSil(int sepet_yemek_id ){
       yrepo.sepettenSil(sepet_yemek_id,KULLANICI_ADI);
+
+      sepetiGetir(KULLANICI_ADI);
    }
 
 }

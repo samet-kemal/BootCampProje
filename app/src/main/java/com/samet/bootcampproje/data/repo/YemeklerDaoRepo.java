@@ -8,6 +8,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.samet.bootcampproje.data.entity.CRUDResponse;
 import com.samet.bootcampproje.data.entity.SepetResponse;
+import com.samet.bootcampproje.data.entity.SepetYemekler;
 import com.samet.bootcampproje.data.entity.Yemekler;
 import com.samet.bootcampproje.data.entity.YemeklerResponse;
 import com.samet.bootcampproje.retrofit.YemeklerDao;
@@ -22,7 +23,7 @@ public class YemeklerDaoRepo {
 
     private MutableLiveData<List<Yemekler>> yemekListesi;
     private YemeklerDao yDao;
-    private MutableLiveData<List<Yemekler>> sepetYemekler;
+    private MutableLiveData<List<SepetYemekler>> sepetYemekler;
 
     public YemeklerDaoRepo(YemeklerDao yDao) {
         this.yDao = yDao;
@@ -32,7 +33,7 @@ public class YemeklerDaoRepo {
     }
 
 
-    public MutableLiveData<List<Yemekler>> getSepetYemekler() {
+    public MutableLiveData<List<SepetYemekler>> getSepetYemekler() {
         return sepetYemekler;
     }
 
@@ -85,7 +86,7 @@ public class YemeklerDaoRepo {
             @Override
             public void onResponse(Call<SepetResponse> call, Response<SepetResponse> response) {
                 Log.e("SepetYemekler",response.body().getYemekler().toString());
-                List<Yemekler> sepet = response.body().getYemekler();
+                List<SepetYemekler> sepet = response.body().getYemekler();
                 sepetYemekler.setValue(sepet);
             }
 
@@ -101,13 +102,15 @@ public class YemeklerDaoRepo {
         yDao.sepettenSil(sepet_yemek_id, kullanici_adi).enqueue(new Callback<CRUDResponse>() {
             @Override
             public void onResponse(Call<CRUDResponse> call, Response<CRUDResponse> response) {
-                Log.e("CRUD","message="+response.body().toString()+"success="+response.body().getSuccess());
+                Log.e("CRUD","message="+response.body().getMessage().toString()+"success="+response.body().getSuccess());
+                sepetiGetir(kullanici_adi);
 
             }
 
             @Override
             public void onFailure(Call<CRUDResponse> call, Throwable t) {
 
+                Log.e("CRUD","message="+t.toString());
             }
         });
 

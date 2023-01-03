@@ -30,45 +30,44 @@
                         android:id="@+id/imageViewYemekResim"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/textViewYemekFiyat"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintHorizontal_chainStyle="spread"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0"
                         app:srcCompat="@drawable/ic_launcher_foreground" />
 
                     <TextView
                         android:id="@+id/textViewYemekAd"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="80dp"
+                        android:layout_marginBottom="5dp"
                         android:text='@{yemekNesnesi.yemek_adi}'
                         app:layout_constraintBottom_toTopOf="@+id/textViewYemekFiyat"
-                        app:layout_constraintEnd_toStartOf="@+id/imageView2"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/textViewYemekFiyat"
+                        app:layout_constraintStart_toEndOf="@+id/imageViewYemekResim"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:id="@+id/textViewYemekFiyat"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text='@{String.valueOf(yemekNesnesi.yemek_fiyat)}'
+                        android:layout_marginStart="80dp"
+                        android:layout_marginTop="5dp"
+                        android:text='@{String.valueOf(yemekNesnesi.yemek_fiyat)+"₺"}'
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/textViewYemekAd"
-                        app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toEndOf="@+id/imageViewYemekResim"
                         app:layout_constraintTop_toBottomOf="@+id/textViewYemekAd" />
 
                     <ImageView
                         android:id="@+id/imageView2"
-                        android:layout_width="68dp"
-                        android:layout_height="58dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="20dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/textViewYemekAd"
                         app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.481"
                         app:srcCompat="@drawable/add_basket" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

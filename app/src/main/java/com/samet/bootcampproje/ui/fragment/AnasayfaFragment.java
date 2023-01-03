@@ -32,7 +32,7 @@ public class AnasayfaFragment extends Fragment {
         // Inflate the layout for this fragment
 
         binding= DataBindingUtil.inflate(inflater,R.layout.fragment_anasayfa, container, false);
-        binding.setAnasayfaFragmentTitle("YemekUygulamassı");
+        binding.setAnasayfaFragmentTitle("YemeklerAnasayfa");
         ((AppCompatActivity)getActivity()).setSupportActionBar(binding.toolbarAnasayfaFragment);
 
 

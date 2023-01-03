@@ -6,11 +6,12 @@ import java.io.Serializable;
 import java.util.List;
 
 public class SepetResponse implements Serializable {
-    public List<Yemekler> getYemekler() {
+
+    public List<SepetYemekler> getYemekler() {
         return yemekler;
     }
 
-    public void setYemekler(List<Yemekler> yemekler) {
+    public void setYemekler(List<SepetYemekler> yemekler) {
         this.yemekler = yemekler;
     }
 
@@ -22,16 +23,13 @@ public class SepetResponse implements Serializable {
         this.success = success;
     }
 
-    public SepetResponse(List<Yemekler> yemekler, String success) {
+    public SepetResponse(List<SepetYemekler> yemekler, String success) {
         this.yemekler = yemekler;
         this.success = success;
     }
 
-    public SepetResponse() {
-    }
-
     @SerializedName("sepet_yemekler")
-    private List<Yemekler> yemekler;
+    private List<SepetYemekler> yemekler;
     @SerializedName("success")
     private String success ;
 }

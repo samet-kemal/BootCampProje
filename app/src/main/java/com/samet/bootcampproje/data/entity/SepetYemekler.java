@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-public class Sepet implements Serializable {
+public class SepetYemekler implements Serializable {
 
     @SerializedName("sepet_yemek_id")
     private int sepet_yemek_id;
@@ -15,7 +15,7 @@ public class Sepet implements Serializable {
     @SerializedName("yemek_fiyat")
     private int yemek_fiyat;
     @SerializedName("yemek_siparis_adet")
-    private String yemek_siparis_adet;
+    private int yemek_siparis_adet;
     @SerializedName("kullanici_adi")
     private String kullanici_adi;
 
@@ -51,11 +51,11 @@ public class Sepet implements Serializable {
         this.yemek_fiyat = yemek_fiyat;
     }
 
-    public String getYemek_siparis_adet() {
+    public int getYemek_siparis_adet() {
         return yemek_siparis_adet;
     }
 
-    public void setYemek_siparis_adet(String yemek_siparis_adet) {
+    public void setYemek_siparis_adet(int yemek_siparis_adet) {
         this.yemek_siparis_adet = yemek_siparis_adet;
     }
 
@@ -67,7 +67,7 @@ public class Sepet implements Serializable {
         this.kullanici_adi = kullanici_adi;
     }
 
-    public Sepet(int sepet_yemek_id, String yemek_adi, String yemek_resim_adi, int yemek_fiyat, String yemek_siparis_adet, String kullanici_adi) {
+    public SepetYemekler(int sepet_yemek_id, String yemek_adi, String yemek_resim_adi, int yemek_fiyat, int yemek_siparis_adet, String kullanici_adi) {
         this.sepet_yemek_id = sepet_yemek_id;
         this.yemek_adi = yemek_adi;
         this.yemek_resim_adi = yemek_resim_adi;
@@ -76,6 +76,6 @@ public class Sepet implements Serializable {
         this.kullanici_adi = kullanici_adi;
     }
 
-    public Sepet() {
+    public SepetYemekler() {
     }
 }

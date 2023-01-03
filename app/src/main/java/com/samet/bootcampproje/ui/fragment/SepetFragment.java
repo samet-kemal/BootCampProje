@@ -3,6 +3,7 @@ package com.samet.bootcampproje.ui.fragment;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -35,6 +36,9 @@ public class SepetFragment extends Fragment {
 
         binding= DataBindingUtil.inflate(inflater,R.layout.fragment_sepet, container, false);
 
+        binding.setSepetFragmentTitle("Sepet");
+        ((AppCompatActivity)getActivity()).setSupportActionBar(binding.toolbarSepetFragment);
+
 
         viewModelGetir();
 
@@ -53,6 +57,7 @@ public class SepetFragment extends Fragment {
             SepetAdapter adapter = new SepetAdapter(requireContext(),sepetYemekler,viewModel);
 
             binding.setSepetAdapter(adapter);
+
         });
     }
 
