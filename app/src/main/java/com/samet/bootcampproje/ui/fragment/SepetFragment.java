@@ -6,6 +6,7 @@ import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,15 +35,25 @@ public class SepetFragment extends Fragment {
 
         binding= DataBindingUtil.inflate(inflater,R.layout.fragment_sepet, container, false);
 
-        viewModel.sepetYemekler.observe(getViewLifecycleOwner(),sepetYemekler ->{
-            SepetAdapter adapter = new SepetAdapter(requireContext(),sepetYemekler,viewModel);
 
-            binding.sepetRv.setAdapter(adapter);
-        });
+        viewModelGetir();
 
+
+
+
+        binding.setSepetFragment(this);
 
         // Inflate the layout for this fragment
         return binding.getRoot();
+    }
+
+    public void viewModelGetir(){
+        viewModel.sepetYemekler.observe(getViewLifecycleOwner(),sepetYemekler ->{
+
+            SepetAdapter adapter = new SepetAdapter(requireContext(),sepetYemekler,viewModel);
+
+            binding.setSepetAdapter(adapter);
+        });
     }
 
 

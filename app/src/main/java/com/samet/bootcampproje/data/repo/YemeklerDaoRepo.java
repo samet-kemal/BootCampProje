@@ -6,6 +6,7 @@ import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
 
+import com.samet.bootcampproje.data.entity.CRUDResponse;
 import com.samet.bootcampproje.data.entity.SepetResponse;
 import com.samet.bootcampproje.data.entity.Yemekler;
 import com.samet.bootcampproje.data.entity.YemeklerResponse;
@@ -84,8 +85,8 @@ public class YemeklerDaoRepo {
             @Override
             public void onResponse(Call<SepetResponse> call, Response<SepetResponse> response) {
                 Log.e("SepetYemekler",response.body().getYemekler().toString());
-                List<Yemekler> sepetYemekler = response.body().getYemekler();
-                yemekListesi.setValue(sepetYemekler);
+                List<Yemekler> sepet = response.body().getYemekler();
+                sepetYemekler.setValue(sepet);
             }
 
             @Override
@@ -96,7 +97,21 @@ public class YemeklerDaoRepo {
         });
     }
 
+    public void sepettenSil(int sepet_yemek_id,String kullanici_adi) {
+        yDao.sepettenSil(sepet_yemek_id, kullanici_adi).enqueue(new Callback<CRUDResponse>() {
+            @Override
+            public void onResponse(Call<CRUDResponse> call, Response<CRUDResponse> response) {
+                Log.e("CRUD","message="+response.body().toString()+"success="+response.body().getSuccess());
+
+            }
+
+            @Override
+            public void onFailure(Call<CRUDResponse> call, Throwable t) {
+
+            }
+        });
 
 
+    }
 
 }

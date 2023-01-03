@@ -1,5 +1,6 @@
 package com.samet.bootcampproje.retrofit;
 
+import com.samet.bootcampproje.data.entity.CRUDResponse;
 import com.samet.bootcampproje.data.entity.SepetResponse;
 import com.samet.bootcampproje.data.entity.YemeklerResponse;
 
@@ -25,6 +26,10 @@ public interface YemeklerDao {
     @POST("http://kasimadalan.pe.hu/yemekler/sepettekiYemekleriGetir.php")
     @FormUrlEncoded
     Call<SepetResponse> sepetiGetir(@Field("kullanici_adi") String kullanici_adi);
+
+    @POST("http://kasimadalan.pe.hu/yemekler/sepettenYemekSil.php")
+    @FormUrlEncoded
+    Call<CRUDResponse> sepettenSil(@Field("sepet_yemek_id") int sepet_yemek_id, @Field("kullanici_adi") String kullanici_adi);
 
 
 

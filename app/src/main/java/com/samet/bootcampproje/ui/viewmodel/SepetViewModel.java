@@ -23,8 +23,7 @@ public class SepetViewModel extends ViewModel {
    @Inject
    public SepetViewModel(YemeklerDaoRepo yrepo) {
       this.yrepo = yrepo;
-      String kullanici_adi=KULLANICI_ADI;
-      sepetiGetir(kullanici_adi);
+      sepetiGetir(KULLANICI_ADI);
       this.sepetYemekler = yrepo.getSepetYemekler();
 
 
@@ -33,6 +32,10 @@ public class SepetViewModel extends ViewModel {
    public void sepetiGetir(String kullanici_adi){
       yrepo.sepetiGetir(kullanici_adi);
 
+   }
+
+   public void sepettenSil(int sepet_yemek_id ){
+      yrepo.sepettenSil(sepet_yemek_id,KULLANICI_ADI);
    }
 
 }

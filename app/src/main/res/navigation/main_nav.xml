@@ -35,9 +35,5 @@
         android:id="@+id/sepetFragment"
         android:name="com.samet.bootcampproje.ui.fragment.SepetFragment"
         android:label="fragment_sepet"
-        tools:layout="@layout/fragment_sepet" >
-        <action
-            android:id="@+id/action_sepetFragment_to_anasayfaFragment"
-            app:destination="@id/anasayfaFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_sepet" />
 </navigation>
