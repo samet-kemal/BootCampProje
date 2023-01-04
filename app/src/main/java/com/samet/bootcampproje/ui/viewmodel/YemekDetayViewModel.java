@@ -23,5 +23,10 @@ public class YemekDetayViewModel extends ViewModel {
         yrepo.yemekEkle(yemek_adi,yemek_resim_adi,yemek_fiyat,yemek_siparis_adet);
    }
 
+    public void sepetiGetir(String kullanici_adi){
+        yrepo.sepetiGetir(kullanici_adi);
+
+    }
+
 }
 

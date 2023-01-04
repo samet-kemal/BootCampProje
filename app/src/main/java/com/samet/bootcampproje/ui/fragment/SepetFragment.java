@@ -37,6 +37,7 @@ public class SepetFragment extends Fragment {
         binding= DataBindingUtil.inflate(inflater,R.layout.fragment_sepet, container, false);
 
         binding.setSepetFragmentTitle("Sepet");
+        binding.toolbarSepetFragment.setTitleTextAppearance(getContext(),R.style.titleFont);
         ((AppCompatActivity)getActivity()).setSupportActionBar(binding.toolbarSepetFragment);
 
 

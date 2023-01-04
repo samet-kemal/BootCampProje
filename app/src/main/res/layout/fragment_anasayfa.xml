@@ -6,7 +6,6 @@
     <data>
         <variable
             name="anasayfaFragmentTitle"
-            android:textSize="10sp"
             type="String" />
 
 
@@ -18,22 +17,23 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:backgroundTint="@color/app_background_2"
         tools:context=".ui.fragment.AnasayfaFragment">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbarAnasayfaFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
+            android:background="@color/app_background"
             android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme"
+            android:textAlignment="center"
+            app:title="@{anasayfaFragmentTitle}"
             app:layout_constraintBottom_toTopOf="@+id/anasayfaRv"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:title="@{anasayfaFragmentTitle}"
-            app:titleMargin="0dp" />
+            app:titleMargin="0dp"
+             />
 
 
         <androidx.recyclerview.widget.RecyclerView
@@ -60,6 +60,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:tint="@color/white" />
+
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,6 +36,7 @@ public class YemekDetayFragment extends Fragment {
         binding= DataBindingUtil.inflate(inflater,R.layout.fragment_yemek_detay, container, false);
 
         binding.setDetayFragmentTitle("Yemekler Detay");
+        binding.toolbarDetayFragment.setTitleTextAppearance(getContext(),R.style.titleFont);
         ((AppCompatActivity)getActivity()).setSupportActionBar(binding.toolbarDetayFragment);
 
         YemekDetayFragmentArgs bundle = YemekDetayFragmentArgs.fromBundle(getArguments());
@@ -48,6 +50,11 @@ public class YemekDetayFragment extends Fragment {
 
         binding.fabDetay.setOnClickListener(view->{
             sepeteEkle(seciliYemek);
+        });
+
+        binding.fabDetaySepet.setOnClickListener(view->{
+            Navigation.findNavController(view).navigate(R.id.action_yemekDetayFragment_to_sepetFragment);
+
         });
 
         return binding.getRoot();

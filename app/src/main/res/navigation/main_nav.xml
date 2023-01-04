@@ -30,6 +30,10 @@
         <argument
             android:name="secilenYemek"
             app:argType="com.samet.bootcampproje.data.entity.Yemekler" />
+        <action
+            android:id="@+id/action_yemekDetayFragment_to_sepetFragment"
+            app:destination="@id/sepetFragment"
+            app:popUpTo="@id/anasayfaFragment" />
     </fragment>
     <fragment
         android:id="@+id/sepetFragment"

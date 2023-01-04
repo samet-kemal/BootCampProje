@@ -15,4 +15,11 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+    <style name="titleFont">
+        <item name="android:fontFamily">@font/almendra_sc</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textStyle">bold</item>
+        <item name="titleTextColor">@color/app_text_color_1</item>
+,    </style>
 </resources>
